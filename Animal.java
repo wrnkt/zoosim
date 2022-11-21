@@ -38,6 +38,11 @@ public class Animal implements Exhibitable<Exhibit>
         return name;
     }
 
+    public int getAnimalID()
+    {
+        return animalID;
+    }
+
     private void setName(String name)
     {
         this.name = name;
@@ -45,7 +50,11 @@ public class Animal implements Exhibitable<Exhibit>
 
     public String toString()
     {
-        return String.format("Animal ID #%d\n, Name: %s", animalID, name);
+        return String.format(
+                "Animal ID #%d\n, Name: %s\n",
+                getAnimalID(),
+                getName()
+                );
     }
 
     public void releaseInto(Exhibit exhibit)

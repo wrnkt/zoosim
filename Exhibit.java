@@ -25,13 +25,25 @@ public class Exhibit
         currentlyShowing.add(animal);
         animalsShown.add(animal);
         lastShowings.put(LocalDateTime.now(), animal);
-        Logger.log(String.format("Showing animal in exhibit"));
+
+        Logger.log(String.format(
+                    "Showing Animal#%d %s in Exhibit#%d",
+                    animal.getAnimalID(),
+                    animal.getName(),
+                    8008
+                    ));
     }
 
     public void removeAnimal(Animal animal)
     {
         currentlyShowing.remove(animal);
-        Logger.log(String.format("Removing animal from exhibit"));
+
+        Logger.log(String.format(
+                    "Removing Animal#%d %s from Exhibit#%d",
+                    animal.getAnimalID(),
+                    animal.getName(),
+                    8008
+                    ));
     }
 
     private void speakLoudSpeaker(String s)
