@@ -7,6 +7,10 @@ CLASSDIR = classes
 
 default: Zoo.class Reptile.class Primate.class Pettable.class Mammal.class LoudSpeaker.class Logger.class Location.class Invertebrate.class Exhibitable.class Enclosure.class Bird.class Animal.class Amphibian.class Exhibit.class
 
+rebuild:
+	make clean
+	make
+
 Exhibit.class: Exhibit.java LoudSpeaker.class Animal.class
 	$(JC) $(JCFLAGS) -d $(CLASSDIR) Exhibit.java
 Amphibian.class: Amphibian.java
