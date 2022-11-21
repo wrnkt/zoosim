@@ -20,6 +20,17 @@ public class Exhibit
     {
     }
 
+    public void showAnimal(Animal a)
+    {
+        animalsShown.add(a);
+        Logger.log(String.format("Showing animal in exhibit"));
+    }
+
+    public void removeAnimal(Animal a)
+    {
+        Logger.log(String.format("Removing animal from exhibit"));
+    }
+
     private void speakLoudSpeaker(String s)
     {
         loudspeaker.speak(s);
@@ -28,7 +39,10 @@ public class Exhibit
     public static void main(String[] args)
     {
         Exhibit testExhibit1 = new Exhibit();
+        Animal testAnimal = new Animal();
         testExhibit1.speakLoudSpeaker("HELLO ANIMAL LOVERS");
+        testExhibit1.showAnimal(testAnimal);
+        testExhibit1.removeAnimal(testAnimal);
     }
 
 }

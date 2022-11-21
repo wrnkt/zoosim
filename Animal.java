@@ -1,14 +1,18 @@
 public class Animal implements Exhibitable<Exhibit>
 {
 
+    private boolean beingShown = false;
+
     public void releaseInto(Exhibit e)
     {
-        System.out.println();
+        e.showAnimal(this);
+        beingShown = true;
     }
 
     public void removeFrom(Exhibit e)
     {
-        System.out.println();
+        e.removeAnimal(this);
+        beingShown = false;
     }
 
     public void exhibitMe(Exhibit e)
