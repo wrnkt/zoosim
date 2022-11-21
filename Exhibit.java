@@ -7,14 +7,12 @@ public class Exhibit
     private final LoudSpeaker loudspeaker;
 
     private ArrayList<Animal> currentlyShowing = new ArrayList<>();
-
     private ArrayList<Animal> animalsShown = new ArrayList<>();
 
     private HashMap<LocalDateTime, Animal> lastShowings = new HashMap<>();
 
     public Exhibit()
     {
-        // Logger.log("Creating Exhibit");
         loudspeaker = new LoudSpeaker();
     }
 
@@ -26,12 +24,13 @@ public class Exhibit
     {
         currentlyShowing.add(animal);
         animalsShown.add(animal);
+        lastShowings.put(LocalDateTime.now(), animal);
         Logger.log(String.format("Showing animal in exhibit"));
     }
 
     public void removeAnimal(Animal animal)
     {
-        currentlyShowing = null;
+        currentlyShowing.remove(animal);
         Logger.log(String.format("Removing animal from exhibit"));
     }
 
