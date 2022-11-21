@@ -4,21 +4,31 @@ import java.time.LocalDateTime;
 
 public class Exhibit
 {
-    final LoudSpeaker loudspeaker;
+    private final LoudSpeaker loudspeaker;
 
-    ArrayList<Animal> animalsShown = new ArrayList<>();
+    private ArrayList<Animal> animalsShown = new ArrayList<>();
 
-    HashMap<LocalDateTime, Animal> lastShowings = new HashMap<>();
+    private HashMap<LocalDateTime, Animal> lastShowings = new HashMap<>();
 
+    public Exhibit()
     {
+        // Logger.log("Creating Exhibit");
         loudspeaker = new LoudSpeaker();
     }
 
-    
+    private void announce()
+    {
+    }
+
+    private void speakLoudSpeaker(String s)
+    {
+        loudspeaker.speak(s);
+    }
 
     public static void main(String[] args)
     {
-        Logger.log("TEST");
+        Exhibit testExhibit1 = new Exhibit();
+        testExhibit1.speakLoudSpeaker("HELLO ANIMAL LOVERS");
     }
 
 }

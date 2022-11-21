@@ -1,9 +1,5 @@
 public class Animal implements Exhibitable<Exhibit>
 {
-    public void announce(Exhibit e)
-    {
-        System.out.println();
-    }
 
     public void releaseInto(Exhibit e)
     {
