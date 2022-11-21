@@ -6,6 +6,8 @@ public class Exhibit
 {
     private final LoudSpeaker loudspeaker;
 
+    private ArrayList<Animal> currentlyShowing = new ArrayList<>();
+
     private ArrayList<Animal> animalsShown = new ArrayList<>();
 
     private HashMap<LocalDateTime, Animal> lastShowings = new HashMap<>();
@@ -20,14 +22,16 @@ public class Exhibit
     {
     }
 
-    public void showAnimal(Animal a)
+    public void showAnimal(Animal animal)
     {
-        animalsShown.add(a);
+        currentlyShowing.add(animal);
+        animalsShown.add(animal);
         Logger.log(String.format("Showing animal in exhibit"));
     }
 
-    public void removeAnimal(Animal a)
+    public void removeAnimal(Animal animal)
     {
+        currentlyShowing = null;
         Logger.log(String.format("Removing animal from exhibit"));
     }
 

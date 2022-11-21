@@ -3,22 +3,22 @@ public class Animal implements Exhibitable<Exhibit>
 
     private boolean beingShown = false;
 
-    public void releaseInto(Exhibit e)
+    public void releaseInto(Exhibit exhibit)
     {
-        e.showAnimal(this);
+        exhibit.showAnimal(this);
         beingShown = true;
     }
 
-    public void removeFrom(Exhibit e)
+    public void removeFrom(Exhibit exhibit)
     {
-        e.removeAnimal(this);
+        exhibit.removeAnimal(this);
         beingShown = false;
     }
 
-    public void exhibitMe(Exhibit e)
+    public void exhibitMe(Exhibit exhibit)
     {
-        releaseInto(e);
-        removeFrom(e);
+        releaseInto(exhibit);
+        removeFrom(exhibit);
     }
 
     public static void main(String[] args)
