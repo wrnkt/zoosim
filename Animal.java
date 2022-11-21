@@ -10,6 +10,7 @@ public class Animal implements Exhibitable<Exhibit>
 
     private LocalDateTime birthday;
 
+    private boolean isAlive = false;
     private boolean beingShown = false;
 
     public Animal()
@@ -26,6 +27,7 @@ public class Animal implements Exhibitable<Exhibit>
 
     public final void beBorn()
     {
+        isAlive = true;
         numberAnimals++;
         this.animalID = numberAnimals;
         this.birthday = LocalDateTime.now();
