@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class Exhibit
 {
     private String name;
-    private final LoudSpeaker loudspeaker;
+    private final LoudSpeaker loudspeaker = new LoudSpeaker();
 
     private ArrayList<Animal> currentlyShowing = new ArrayList<>();
     private ArrayList<Animal> animalsShown = new ArrayList<>();
@@ -14,7 +14,12 @@ public class Exhibit
 
     public Exhibit()
     {
-        loudspeaker = new LoudSpeaker();
+        setName("");
+    }
+
+    public Exhibit(String name)
+    {
+        setName(name);
     }
 
     public String getName()
@@ -38,7 +43,7 @@ public class Exhibit
         lastShowings.put(LocalDateTime.now(), animal);
 
         Logger.log(String.format(
-                    "Showing Animal#%d %s in Exhibit#%d",
+                    "Showing Animal#%04d %s in Exhibit#%02d",
                     animal.getAnimalID(),
                     animal.getName(),
                     8008
@@ -50,7 +55,7 @@ public class Exhibit
         currentlyShowing.remove(animal);
 
         Logger.log(String.format(
-                    "Removing Animal#%d %s from Exhibit#%d",
+                    "Removing Animal#%04d %s from Exhibit#%02d",
                     animal.getAnimalID(),
                     animal.getName(),
                     8008
