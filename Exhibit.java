@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class Exhibit
 {
+    private String name;
     private final LoudSpeaker loudspeaker;
 
     private ArrayList<Animal> currentlyShowing = new ArrayList<>();
@@ -14,6 +15,16 @@ public class Exhibit
     public Exhibit()
     {
         loudspeaker = new LoudSpeaker();
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    private void setName(String name)
+    {
+        this.name = name;
     }
 
     private void announce()
