@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.time.LocalDateTime;
 
 public class Animal implements Exhibitable<Exhibit>
 {
 
+    public static ArrayList<Animal> animalLedger = new ArrayList<>();
     public static int numberAnimals;
     private int animalID;
 
@@ -28,6 +30,7 @@ public class Animal implements Exhibitable<Exhibit>
     public final void beBorn()
     {
         isAlive = true;
+        animalLedger.add(this);
         numberAnimals++;
         this.animalID = numberAnimals;
         this.birthday = LocalDateTime.now();
