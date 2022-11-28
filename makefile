@@ -5,7 +5,7 @@ JFLAGS = -g -Wall
 JCFLAGS = -g -Xlint:unchecked
 CLASSDIR = classes
 
-default: Zoo.class Reptile.class Primate.class Pettable.class Mammal.class LoudSpeaker.class Logger.class Location.class Invertebrate.class Exhibitable.class Enclosure.class Bird.class Animal.class Amphibian.class Exhibit.class
+default: Zoo.class Reptile.class Primate.class Pettable.class Mammal.class LoudSpeaker.class Logger.class Location.class Invertebrate.class Housable.class Enclosure.class Bird.class Animal.class Amphibian.class Exhibit.class
 
 rebuild:
 	make clean
@@ -15,14 +15,14 @@ Exhibit.class: Exhibit.java LoudSpeaker.class Animal.class
 	$(JC) $(JCFLAGS) -d $(CLASSDIR) Exhibit.java
 Amphibian.class: Amphibian.java
 	$(JC) $(JCFLAGS) -d $(CLASSDIR) Amphibian.java
-Animal.class: Animal.java Exhibitable.class
+Animal.class: Animal.java Housable.class
 	$(JC) $(JCFLAGS) -d $(CLASSDIR) Animal.java
 Bird.class: Bird.java
 	$(JC) $(JCFLAGS) -d $(CLASSDIR) Bird.java
 Enclosure.class: Enclosure.java
 	$(JC) $(JCFLAGS) -d $(CLASSDIR) Enclosure.java
-Exhibitable.class: Exhibitable.java
-	$(JC) $(JCFLAGS) -d $(CLASSDIR) Exhibitable.java
+Housable.class: Housable.java
+	$(JC) $(JCFLAGS) -d $(CLASSDIR) Housable.java
 Invertebrate.class: Invertebrate.java
 	$(JC) $(JCFLAGS) -d $(CLASSDIR) Invertebrate.java
 Location.class: Location.java
