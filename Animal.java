@@ -71,9 +71,10 @@ public class Animal implements Housable<Exhibit<Animal>>
     public String toString()
     {
         return String.format(
-                "Animal ID #%d\n, Name: %s\n",
+                "Animal ID #%d\nName: %s\nAge (in seconds): %d\n",
                 getAnimalID(),
-                getName()
+                getName(),
+                getAgeInSeconds()
                 );
     }
 
@@ -135,6 +136,10 @@ public class Animal implements Housable<Exhibit<Animal>>
         }
 
         return animalList; // after sorting
+    }
+
+    public static void printAnimalInfoList(List<Animal> animalList)
+    {
     }
 
     public static void main(String[] args)
