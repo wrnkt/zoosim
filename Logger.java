@@ -10,6 +10,21 @@ public class Logger
         System.out.println(s);
     }
 
+    public static void log(String type, String content)
+    {
+        List<String> validLogs = Arrays.asList("ERROR","INFO","LOG", "TEST");
+
+        if(!validLogs.contains(type))
+        {
+            log("ERROR", String.format("log type %s not provided.", type));
+            return;
+        }
+        else
+        {
+            System.out.println(String.format("[%s] %s", type, content));
+        }
+    }
+
     private static List<String> getMethodNames(Method[] methods)
     {
         List<String> methodNames = new ArrayList<>();
@@ -40,7 +55,10 @@ public class Logger
             List<String> actualFields = getFieldNames(fields);
             List<String> actualMethods = getMethodNames(methods);
 
+            log("LOG", String.format("fields of %s: ", className));
             log(actualFields.toString());
+            log("");
+            log("LOG", String.format("methods of %s: ", className));
             log(actualMethods.toString());
         }
         catch (ClassNotFoundException e)
@@ -53,6 +71,5 @@ public class Logger
     public static void main(String[] args) throws ClassNotFoundException
     {
         printClassInfo("Animal");
-
     }
 }
