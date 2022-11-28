@@ -79,5 +79,6 @@ public class Logger
         Thread.sleep(1000);
 
         log("LOG",String.format("%s age in seconds: %d", testAnimal.getName(), testAnimal.getAgeInSeconds()));
+
     }
 }

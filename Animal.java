@@ -10,7 +10,7 @@ import java.time.Period;
 import java.time.Duration;
 
 
-public class Animal implements Housable<Exhibit>
+public class Animal implements Housable<Exhibit<Animal>>
 {
 
     public static ArrayList<Animal> animalLedger = new ArrayList<>();
@@ -77,13 +77,13 @@ public class Animal implements Housable<Exhibit>
                 );
     }
 
-    public void releaseInto(Exhibit exhibit)
+    public void releaseInto(Exhibit<Animal> exhibit)
     {
         exhibit.showAnimal(this);
         beingShown = true;
     }
 
-    public void removeFrom(Exhibit exhibit)
+    public void removeFrom(Exhibit<Animal> exhibit)
     {
         exhibit.removeAnimal(this);
         beingShown = false;
@@ -109,6 +109,18 @@ public class Animal implements Housable<Exhibit>
     }
     */
 
+    
+    /*
+    // [TODO]: 
+    // filter by name
+    // filter by weight
+    // filter by age
+    public static List<Animal> filterAnimals()
+    {
+        
+    }
+    */
+    
     public static List<Animal> sortAnimalListBy(List<Animal> animalList, String sortChoice) throws IllegalArgumentException
     {
         if (sortChoice.equals("age") || sortChoice.equals("birthday"))

@@ -2,15 +2,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.time.LocalDateTime;
 
-public class Exhibit
+public class Exhibit<A extends Animal>
 {
     private String name;
     private final LoudSpeaker loudspeaker = new LoudSpeaker();
 
-    private ArrayList<Animal> currentlyShowing = new ArrayList<>();
-    private ArrayList<Animal> animalsShown = new ArrayList<>();
+    private ArrayList<A> currentlyShowing = new ArrayList<>();
+    private ArrayList<A> animalsShown = new ArrayList<>();
 
-    private HashMap<LocalDateTime, Animal> lastShowings = new HashMap<>();
+    private HashMap<LocalDateTime, A> lastShowings = new HashMap<>();
 
     public Exhibit()
     {
@@ -36,7 +36,7 @@ public class Exhibit
     {
     }
 
-    public void showAnimal(Animal animal)
+    public void showAnimal(A animal)
     {
         currentlyShowing.add(animal);
         animalsShown.add(animal);
@@ -50,7 +50,7 @@ public class Exhibit
                     ));
     }
 
-    public void removeAnimal(Animal animal)
+    public void removeAnimal(A animal)
     {
         currentlyShowing.remove(animal);
 
@@ -69,7 +69,7 @@ public class Exhibit
 
     public static void main(String[] args)
     {
-        Exhibit testExhibit1 = new Exhibit();
+        Exhibit<Animal> testExhibit1 = new Exhibit<>();
         Animal testAnimal = new Animal();
         testExhibit1.speakLoudSpeaker("HELLO ANIMAL LOVERS");
         testExhibit1.showAnimal(testAnimal);
