@@ -17,8 +17,7 @@ public class Animal implements Housable<Exhibit>
 
     public Animal()
     {
-        beBorn();
-        setName("unnamed");
+        this("unnamed");
     }
 
     public Animal(String name)
@@ -72,6 +71,23 @@ public class Animal implements Housable<Exhibit>
         beingShown = false;
     }
 
+    /*
+    public void houseIn(Enclosure enclosure)
+    {
+    }
+
+    // These next 2 methods could be overloaded. But maybe the name difference
+    // is useful in catching misuse of the functions.
+    public void releaseFromTo(Enclosure enclosure, Exhibit exhibit)
+    {
+    }
+
+    public void moveFromTo(Exhibit exhibit, Enclosure enclosure)
+    {
+    }
+    */
+
+    // [TODO]: consider removal
     public void exhibitMe(Exhibit exhibit)
     {
         releaseInto(exhibit);
