@@ -1,5 +1,14 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
+
+import java.lang.IllegalArgumentException;
+
 import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.Duration;
+
 
 public class Animal implements Housable<Exhibit>
 {
@@ -39,6 +48,14 @@ public class Animal implements Housable<Exhibit>
     public String getName()
     {
         return name;
+    }
+    
+    public long getAgeInSeconds()
+    {
+        LocalDateTime now = LocalDateTime.now();
+        Duration age = Duration.between(birthday, now);
+
+        return age.toSeconds();
     }
 
     public int getAnimalID()
@@ -97,6 +114,22 @@ public class Animal implements Housable<Exhibit>
     {
         releaseInto(exhibit);
         removeFrom(exhibit);
+    }
+
+    public static List<Animal> sortAnimalListBy(List<Animal> animalList, String sortChoice) throws IllegalArgumentException
+    {
+        if (sortChoice.equals("age") || sortChoice.equals("birthday"))
+        {
+            Comparator<Animal> byAge =
+                (a1, a2) -> (int) (a1.getAgeInSeconds() - a2.getAgeInSeconds());
+            Collections.sort(animalList, byAge);
+        }
+        else
+        {
+            throw new IllegalArgumentException(String.format("Unable to sort by specified property: %d", sortChoice));
+        }
+
+        return animalList; // after sorting
     }
 
     public static void main(String[] args)
