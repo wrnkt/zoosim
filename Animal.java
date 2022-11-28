@@ -109,13 +109,6 @@ public class Animal implements Housable<Exhibit>
     }
     */
 
-    // [TODO]: consider removal
-    public void exhibitMe(Exhibit exhibit)
-    {
-        releaseInto(exhibit);
-        removeFrom(exhibit);
-    }
-
     public static List<Animal> sortAnimalListBy(List<Animal> animalList, String sortChoice) throws IllegalArgumentException
     {
         if (sortChoice.equals("age") || sortChoice.equals("birthday"))
