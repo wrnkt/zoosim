@@ -43,7 +43,7 @@ Zoo.class: Zoo.java
 	$(JC) $(JCFLAGS) -d $(CLASSDIR) Zoo.java
 
 run:
-	java -cp $(CLASSDIR) Exhibit
+	java -cp $(CLASSDIR) Logger
 
 clean:
 	$(RM) $(CLASSDIR)/*.class
