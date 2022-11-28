@@ -1,6 +1,6 @@
 import java.time.Duration;
 
-public abstract interface Exhibitable<T>
+public abstract interface Housable<T>
 {
 
     public abstract void releaseInto(T e);

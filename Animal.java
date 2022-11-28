@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
-public class Animal implements Exhibitable<Exhibit>
+public class Animal implements Housable<Exhibit>
 {
 
     public static ArrayList<Animal> animalLedger = new ArrayList<>();
