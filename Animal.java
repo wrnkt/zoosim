@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.stream.*;
 
 import java.lang.IllegalArgumentException;
 
@@ -138,8 +139,16 @@ public class Animal implements Housable<Exhibit<Animal>>
         return animalList; // after sorting
     }
 
-    public static void printAnimalInfoList(List<Animal> animalList)
+    public static void printAnimalsInList(List<Animal> animalList)
     {
+        Stream<Animal> animals = animalList.stream();
+        animals.forEach(System.out::println);
+    }
+    
+    public static void printAnimalLedger()
+    {
+        System.out.println("animalLedger contents: ");
+        printAnimalsInList(animalLedger);
     }
 
     public static void main(String[] args)

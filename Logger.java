@@ -23,6 +23,7 @@ public class Logger
         {
             System.out.println(String.format("[%s] %s", type, content));
         }
+        System.out.println();
     }
 
     private static List<String> getMethodNames(Method[] methods)
@@ -79,6 +80,8 @@ public class Logger
         Thread.sleep(1000);
 
         log("LOG",String.format("%s age in seconds: %d", testAnimal.getName(), testAnimal.getAgeInSeconds()));
+
+        Animal.printAnimalLedger();
 
     }
 }
