@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
+
+import java.util.Optional;
 import java.util.stream.*;
 
 import java.lang.IllegalArgumentException;
@@ -149,6 +151,28 @@ public class Animal implements Housable<Exhibit<Animal>>
     {
         System.out.println("animalLedger contents: ");
         printAnimalsInList(animalLedger);
+    }
+    
+    public static Animal getOldestAnimal(List<Animal> animalList)
+    {
+        Stream<Animal> animals = animalList.stream();
+        Optional<Animal> oldest =
+            animals.max((a1, a2) -> (int) (a1.getAgeInSeconds() - a2.getAgeInSeconds()));
+        if(oldest.isPresent())
+            return oldest.get();
+        else
+            return null;
+    }
+
+    public static void getYoungestAnimal(List<Animal> animalList)
+    {
+        Stream<Animal> animals = animalList.stream();
+        Optional<Animal> youngest =
+            animals.min((a1, a2) -> (int) (a1.getAgeInSeconds() - a2.getAgeInSeconds()));
+        if(youngest.isPresent())
+            return oldest.get();
+        else
+            return null;
     }
 
     public static void main(String[] args)
