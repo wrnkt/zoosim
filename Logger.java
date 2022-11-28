@@ -60,6 +60,7 @@ public class Logger
             log("");
             log("LOG", String.format("methods of %s: ", className));
             log(actualMethods.toString());
+            log("");
         }
         catch (ClassNotFoundException e)
         {
@@ -68,8 +69,15 @@ public class Logger
         
     }
 
-    public static void main(String[] args) throws ClassNotFoundException
+    public static void main(String[] args) throws ClassNotFoundException, InterruptedException
     {
         printClassInfo("Animal");
+
+        Animal testAnimal = new Animal();
+        Thread.sleep(1000);
+        Animal testAnimal2 = new Animal();
+        Thread.sleep(1000);
+
+        log("LOG",String.format("%s age in seconds: %d", testAnimal.getName(), testAnimal.getAgeInSeconds()));
     }
 }
