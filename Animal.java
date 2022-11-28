@@ -14,6 +14,7 @@ public class Animal implements Housable<Exhibit>
 
     private boolean isAlive = false;
     private boolean beingShown = false;
+    private boolean inEnclosure = true;
 
     public Animal()
     {
@@ -77,12 +78,16 @@ public class Animal implements Housable<Exhibit>
     }
 
     // These next 2 methods could be overloaded. But maybe the name difference
-    // is useful in catching misuse of the functions.
-    public void releaseFromTo(Enclosure enclosure, Exhibit exhibit)
+    // is useful in catching misuse of the functions. Probably keep the names
+    // different in this case
+    //
+    // *return a boolean on success or throw an Exception for unallowed movement?
+    
+    public boolean releaseFromTo(Enclosure enclosure, Exhibit exhibit)
     {
     }
 
-    public void moveFromTo(Exhibit exhibit, Enclosure enclosure)
+    public boolean moveFromTo(Exhibit exhibit, Enclosure enclosure)
     {
     }
     */
