@@ -23,7 +23,6 @@ public class Logger
         {
             System.out.println(String.format("[%s] %s", type, content));
         }
-        System.out.println();
     }
 
     private static List<String> getMethodNames(Method[] methods)
@@ -46,6 +45,8 @@ public class Logger
 
     public static void printClassInfo(String className)
     {
+        System.out.println("-----------------");
+
         try
         {
             Class<?> clazz = Class.forName(className);
@@ -61,13 +62,13 @@ public class Logger
             log("");
             log("LOG", String.format("methods of %s: ", className));
             log(actualMethods.toString());
-            log("");
         }
         catch (ClassNotFoundException e)
         {
-            log("unable to load class");
+            log(String.format("unable to load class: %s", className));
         }
-        
+
+        System.out.println("-----------------");
     }
 
     public static void main(String[] args) throws ClassNotFoundException, InterruptedException
