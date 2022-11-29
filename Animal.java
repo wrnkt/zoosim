@@ -6,6 +6,8 @@ import java.util.Comparator;
 import java.util.Optional;
 import java.util.stream.*;
 
+import java.lang.StringBuilder;
+
 import java.lang.IllegalArgumentException;
 
 import java.time.LocalDateTime;
@@ -141,17 +143,6 @@ public class Animal implements Housable<Exhibit<Animal>>
         return animalList; // after sorting
     }
 
-    public static void printAnimalsInList(List<Animal> animalList)
-    {
-        Stream<Animal> animals = animalList.stream();
-        animals.forEach(System.out::println);
-    }
-    
-    public static void printAnimalLedger()
-    {
-        System.out.println("animalLedger contents: ");
-        printAnimalsInList(animalLedger);
-    }
     
     public static Animal getOldestAnimal(List<Animal> animalList)
     {
@@ -164,15 +155,40 @@ public class Animal implements Housable<Exhibit<Animal>>
             return null;
     }
 
-    public static void getYoungestAnimal(List<Animal> animalList)
+    public static Animal getYoungestAnimal(List<Animal> animalList)
     {
         Stream<Animal> animals = animalList.stream();
         Optional<Animal> youngest =
             animals.min((a1, a2) -> (int) (a1.getAgeInSeconds() - a2.getAgeInSeconds()));
         if(youngest.isPresent())
-            return oldest.get();
+            return youngest.get();
         else
             return null;
+    }
+
+    public static void printAnimalsInList(List<Animal> animalList)
+    {
+        Stream<Animal> animals = animalList.stream();
+        animals.forEach(System.out::println);
+    }
+    
+    public static void printAnimalLedger()
+    {
+        System.out.println(getAnimalLedgerContents());
+    }
+
+    public static String getAnimalLedgerContents()
+    {
+        Stream<Animal> animals = animalLedger.stream();
+
+        StringBuilder animalLedgerContent = new StringBuilder();
+
+        animalLedgerContent.append("---------------------\n");
+        animalLedgerContent.append("animalLedger contents:\n");
+
+        animals.forEach((a) -> animalLedgerContent.append(a + "\n"));
+
+        return animalLedgerContent.toString();
     }
 
     public static void main(String[] args)
