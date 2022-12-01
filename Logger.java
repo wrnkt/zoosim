@@ -3,8 +3,48 @@ import java.util.ArrayList;
 import java.util.List;
 import java.lang.reflect.*;
 
+import java.io.*;
+import java.util.*;
+
+import java.text.SimpleDateFormat;
+
 public class Logger
 {
+    public static final PrintStream console = System.out;
+
+    private PrintStream outFilePrintStream;
+    private static boolean printToFile = false;
+    
+    private void setPrintToFile(String fileName)
+    {
+        try
+        {
+            outFilePrintStream = new PrintStream(new File(fileName));
+            System.setOut(outFilePrintStream);
+            printToFile = true;
+        }
+        catch (IOException e)
+        {
+            log("ERROR", String.format("output file %s not found."));
+        }
+    }
+
+    private void setPrintToOutput()
+    {
+        System.setOut(console);
+        printToFile = false;
+    }
+
+    public Logger(String fileName)
+    {
+        setPrintToFile(fileName);
+    }
+
+    public Logger()
+    {
+        setPrintToOutput();
+    }
+
     public static void log(String s)
     {
         System.out.println(s);
@@ -73,7 +113,12 @@ public class Logger
 
     public static void main(String[] args) throws ClassNotFoundException, InterruptedException
     {
-        printClassInfo("Animal");
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd_hh:mm"); 
+
+        Logger fileOut = new Logger("outputtest.log");
+
+        fileOut.printClassInfo("Animal");
+        fileOut.printClassInfo("Exhibit");
 
         Animal testAnimal = new Animal();
         Thread.sleep(1000);
@@ -83,6 +128,8 @@ public class Logger
         log("LOG",String.format("%s age in seconds: %d", testAnimal.getName(), testAnimal.getAgeInSeconds()));
 
         Animal.printAnimalLedger();
+
+        fileOut.setPrintToOutput();
 
     }
 }
