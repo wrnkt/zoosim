@@ -7,6 +7,9 @@ public class Exhibit<A extends Animal>
     private String name;
     private final LoudSpeaker loudspeaker = new LoudSpeaker();
 
+    // [TODO]: add visitor class with child and adult inheriting
+    // add currentlyWatching List
+
     private ArrayList<A> currentlyShowing = new ArrayList<>();
     private ArrayList<A> animalsShown = new ArrayList<>();
 
@@ -69,11 +72,6 @@ public class Exhibit<A extends Animal>
 
     public static void main(String[] args)
     {
-        Exhibit<Animal> testExhibit1 = new Exhibit<>();
-        Animal testAnimal = new Animal();
-        testExhibit1.speakLoudSpeaker("HELLO ANIMAL LOVERS");
-        testExhibit1.showAnimal(testAnimal);
-        testExhibit1.removeAnimal(testAnimal);
     }
 
 }
